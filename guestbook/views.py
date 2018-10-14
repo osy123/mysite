@@ -5,7 +5,14 @@ from guestbook import models
 # Create your views here.
 def index(request):
     results = models.fetchall()
+
+    count = len(results)
+    for result in results:
+        result['number'] = count
+        count -= 1
+
     data = {"guestbook_list":results}
+
     return render(request, 'guestbook/index.html', data)
 
 

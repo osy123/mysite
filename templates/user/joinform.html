@@ -10,7 +10,7 @@
 		<div id="header">
 			<h1>MySite</h1>
 			<ul>
-				{% if request.session.authuser is None %}			# authuser 이름이 없으면 = 로그인이 안되 있으면 이라는 뜻ㅎ
+				{% if request.session.authuser is None %}			<!-- authuser 이름이 없으면 = 로그인이 안되 있으면 이라는 뜻ㅎ -->
 					<li><a href="/user/loginform">로그인</a><li>
 					<li><a href="/user/joinform">회원가입</a><li>
 				{% else %}
@@ -30,10 +30,23 @@
 					<label class="block-label" for="email">이메일</label>
 					<input id="email" name="email" type="text" value="">
 
-					# {% if 이메일 중복이 없다면 숨기기 %}
+
+				{% if request.GET.check == 'pass' %}
+					<input type="button" value="사용 가능">
+				{% else %}
 					<input type="button" value="id 중복체크">
-					# {% endif %}
-					
+				{% endif %}
+
+
+				<!--{% if request.session.passemail.email is None %}-->
+					<!--<input type="button" value="사용 가능">-->
+				<!--{% else %}-->
+					<!--<input type="button" value="id 중복체크">-->
+				<!--{% endif %}-->
+
+					<!--1번 방법으로 하고싶은데 페이지 자체가 안바뀐다. 왜그럴까ㅠㅠ-->
+
+
 					<label class="block-label">패스워드</label>
 					<input name="password" type="password" value="">
 					

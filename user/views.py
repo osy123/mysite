@@ -23,7 +23,6 @@ def joinsuccess(request):
     return render(request, 'user/joinsuccess.html')
 
 
-
 def loginform(request):
     return render(request, 'user/loginform.html')
 
@@ -32,7 +31,6 @@ def login(request):
     password = request.POST["password"]
 
     user = models.get(email, password)
-
 
     # 로그인 실패!!!!! ***** 짱중요
     if user is None:
@@ -55,3 +53,16 @@ def logout(request):
     del request.session['authuser']
 
     return HttpResponseRedirect('/')
+
+
+def checkemail(request):
+
+    email = request.POST["email"]
+    address = models.check(email)
+
+    if address is None:
+        return HttpResponseRedirect('/user/joinform?check=pass')
+
+    request.session['passemail'] = address
+
+    return HttpResponseRedirect('/user/joinform')
