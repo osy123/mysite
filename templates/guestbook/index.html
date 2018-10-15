@@ -43,7 +43,7 @@
 					{% for guestbook in guestbook_list %}
 					<table width="510" border="1">
 						<tr>
-							<td>{{ guestbook.number }}</td>
+							<td>{{ guestbook.no }}</td>
 							<td>{{ guestbook.name }}</td>
 							<td>{{ guestbook.reg_date }}</td>
 							<td><a href="/guestbook/deleteform?no={{ guestbook.no }}">삭제</a></td>

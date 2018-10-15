@@ -54,15 +54,3 @@ def logout(request):
 
     return HttpResponseRedirect('/')
 
-
-def checkemail(request):
-
-    email = request.POST["email"]
-    address = models.check(email)
-
-    if address is None:
-        return HttpResponseRedirect('/user/joinform?check=pass')
-
-    request.session['passemail'] = address
-
-    return HttpResponseRedirect('/user/joinform')
