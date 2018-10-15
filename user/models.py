@@ -60,35 +60,10 @@ def insert(user):
         conn.commit()
         conn.close()
 
-
         return count == 1
 
     except MySQLdb.Error as e:
         print("Error {0}: {1}".format(e.args[0], e.args[1]))
         return None
 
-
-def check(email):
-    try:
-        conn = connect()
-
-        cursor = conn.cursor(MySQLdb.cursors.DictCursor)
-
-        sql = """
-                select email from user
-                    where email = "%s"
-            """ % email
-
-        cursor.execute(sql)
-
-        row = cursor.fetchall()
-
-        cursor.close()
-        conn.close()
-
-        return row
-
-    except MySQLdb.Error as e:
-        print("Error {0}: {1}".format(e.args[0], e.args[1]))
-        return None
 

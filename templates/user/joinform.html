@@ -30,23 +30,7 @@
 					<label class="block-label" for="email">이메일</label>
 					<input id="email" name="email" type="text" value="">
 
-
-				{% if request.GET.check == 'pass' %}
-					<input type="button" value="사용 가능">
-				{% else %}
 					<input type="button" value="id 중복체크">
-				{% endif %}
-
-
-				<!--{% if request.session.passemail.email is None %}-->
-					<!--<input type="button" value="사용 가능">-->
-				<!--{% else %}-->
-					<!--<input type="button" value="id 중복체크">-->
-				<!--{% endif %}-->
-
-					<!--1번 방법으로 하고싶은데 페이지 자체가 안바뀐다. 왜그럴까ㅠㅠ-->
-
-
 					<label class="block-label">패스워드</label>
 					<input name="password" type="password" value="">
 					
